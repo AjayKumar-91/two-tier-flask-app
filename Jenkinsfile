@@ -25,7 +25,7 @@ pipeline {
                 echo "Developer/Tester is testing"
             }
         }
-         stage('Push Image to DOcker Hub') {
+         stage('Push Image to Docker Hub') {
             steps {
                 withCredentials([usernamePassword(
                     credentialsId:"DockerHub_Credentials",
