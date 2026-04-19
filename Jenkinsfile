@@ -47,7 +47,6 @@ pipeline {
                 docker stop flask-app || true
                 docker rm flask-app || true
                 docker rmi two-tier-flask-app || true
-
                 docker compose down || true
                 docker compose up -d --build flask-app
                 '''
