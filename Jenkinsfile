@@ -33,9 +33,11 @@ pipeline {
                 passwordVariable: "dockerHubPass",
                 usernameVariable: "dockerHubUser"               
                 )]){ 
-                sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPass}"
-                sh "docker image tag two-tier-flask-app ${env.dockerHubUser}/two-tier-flask-app:latest"
-                sh "docker push ${env.dockerHubUser}/two-tier-flask-app:latest" 
+                    sh '''
+                    docker login -u $dockerHubUser -p $dockerHubPass
+                    docker tag two-tier-flask-app $dockerHubUser/two-tier-flask-app
+                    docker push $dockerHubUser/two-tier-flask-app
+                    '''
                 }
             }
         }
