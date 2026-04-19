@@ -47,9 +47,8 @@ pipeline {
                 docker rm flask-app || true
                 docker rmi two-tier-flask-app || true
 
-                docker run -d -p 2000:5000 --name flask-app two-tier-flask-app
-                # docker compose down || true
-                # docker compose up -d --build flask-app
+                docker compose down || true
+                docker compose up -d --build flask-app
                 '''
             }
         }
